@@ -30,6 +30,7 @@
 html,
 body {
   background-color: #f9f9f9;
+  color: #171717;
   font-family: "EB_Garamond", serif;
   margin: 0;
   width: 100%;
@@ -45,11 +46,15 @@ h6 {
   font-family: "Tenor Sans", sans-serif;
 }
 
-a:visited {
-  color: inherit;
-}
+a {
+  color: #171717;
 
-a:hover,
-a:focus {
-  color: rgb(6 95 70);
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    color: rgb(6 95 70);
+  }
 }
