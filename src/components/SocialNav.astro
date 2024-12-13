@@ -1,0 +1,52 @@
+<nav class="navigation-social" aria-label="Social Media">
+    <ul class="navigation-social--list">
+        <li class="navigation-social--list-item">
+            <a rel="noopener nofollow" target="_blank" href="https://twitter.com/cheffheid" class="navigation-social--anchor" aria-label="Twitter">
+                <img alt="" loading="lazy" width="36" height="36" decoding="async" src="/icons/twitter.svg">
+            </a>
+        </li>
+
+        <li class="navigation-social--list-item">
+            <a rel="noopener nofollow" target="_blank" href="https://github.com/Cheffheid" class="navigation-social--anchor" aria-label="Github">
+                <img alt="" loading="lazy" width="36" height="36" decoding="async" src="/icons/github.svg">
+            </a>
+        </li>
+
+        <li class="navigation-social--list-item">
+            <a rel="noopener nofollow" target="_blank" href="https://www.linkedin.com/in/jeffreydewit/" class="navigation-social--anchor" aria-label="LinkedIn">
+                <img alt="" loading="lazy" width="36" height="36" decoding="async" src="/icons/linkedin.svg">
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    .navigation-social--list {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        text-align: center;
+        padding: 0;
+    }
+
+    .navigation-social--anchor {
+        img {
+            backface-visibility: hidden;
+            display: block;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+        }
+
+        &:hover {
+
+            img {
+                transform: matrix(1.25, 0, 0, 1.25, 0, 0);
+            }
+        }
+
+        svg {
+            display: block;
+            width: 100%;
+        }
+    }
+</style>
