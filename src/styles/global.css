@@ -58,3 +58,9 @@ a {
     color: rgb(6 95 70);
   }
 }
+
+.page-content {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
