@@ -1,0 +1,39 @@
+.page-content {
+  flex-direction: column;
+  max-width: 60.5rem;
+}
+
+.blog-post:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+
+.blog-post-link {
+  display: block;
+  padding: 1rem 0;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    background-color: rgba(6, 95, 70, 0.05);
+    content: "";
+    border-radius: 0.5rem;
+    display: block;
+    height: 100%;
+    left: -0.5rem;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity ease-in-out 150ms;
+    width: calc(100% + 1rem);
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+  }
+}
+
+.blog-post-date,
+.blog-post-title {
+  margin: 0;
+}

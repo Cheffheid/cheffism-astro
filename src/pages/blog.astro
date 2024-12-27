@@ -2,8 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 import '../styles/global.css';
+import '../styles/blog.css';
 
-const res = await fetch("https://jeffreydewit.com/wp-json/wp/v2/posts?_fields=author,id,excerpt,title,slug");
+const res = await fetch("https://jeffreydewit.com/wp-json/wp/v2/posts?_fields=id,title,slug,date");
 const posts = await res.json();
 ---
 
@@ -13,11 +14,11 @@ const posts = await res.json();
 			<h1>Things I've Written</h1>
 			{
 				posts.map((post) => (
-					<article>
-						<h2>
-							<a href={`/blog/${post.slug}/`} set:html={post.title.rendered} />
-						</h2>
-						<Fragment set:html={post.excerpt.rendered} />
+					<article class="blog-post">
+						<a href={`/blog/${post.slug}/`} class="blog-post-link">
+							<h2 class="blog-post-title" set:html={post.title.rendered} />
+							<p class="blog-post-date" set:html={new Date(post.date).toLocaleDateString()} />
+						</a>
 					</article>
 				))
 			}
