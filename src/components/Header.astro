@@ -1,0 +1,12 @@
+---
+import MainNav from "./MainNav.astro";
+import { Image } from 'astro:assets';
+import '@styles/header.css';
+---
+
+<header class="page-header">
+	<a href="/">
+		<Image src="/gothparrot.gif" alt="Goth party parrot 'logo', home link" width="36" height="25" />
+	</a>
+	<MainNav></MainNav>
+</header>
