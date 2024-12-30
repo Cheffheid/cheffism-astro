@@ -1,20 +1,40 @@
+---
+const currentPath = Astro.url.pathname;
+const paths = [
+	{
+		link: '/blog/',
+		label: "Things I've Written"
+	},
+	{
+		link: '/about-jeff-de-wit/',
+		label: "About Me"
+	},
+	{
+		link: '/things-ive-done/',
+		label: "Stuff I've Done"
+	}
+];
+---
+
 <nav class="main-navigation" aria-label="Main Navigation">
 	<ul class="main-navigation--list">
-		<li class="main-navigation--list-item">
-			<a class="main-navigation--anchor" href="/blog/">
-				Things I've Written
-			</a>
-		</li>
-		<li class="main-navigation--list-item">
-			<a class="main-navigation--anchor" href="/about-jeff-de-wit/">
-				About Me
-			</a>
-		</li>
-		<li class="main-navigation--list-item">
-			<a class="main-navigation--anchor" href="/things-ive-done/">
-				Stuff I've Done
-			</a>
-		</li>
+		{
+		paths.map((path: { link: string; label: string; }) => {
+			let linkClass = 'main-navigation--list-item';
+
+			if ( currentPath.includes(path.link) ) {
+				linkClass += ' active';
+			}
+
+			return (
+			<li class={linkClass}>
+				<a class="main-navigation--anchor" href={path.link}>
+					{path.label}
+				</a>
+			</li>
+			)
+		})
+		}
 	</ul>
 </nav>
 
@@ -26,7 +46,10 @@
 		padding: 0;
 	}
 
-	.main-navigation--anchor {
-		text-decoration: none;
+	.main-navigation--list-item:not(.active) {
+		.main-navigation--anchor {
+			text-decoration: none;
+		}
 	}
+
 </style>
