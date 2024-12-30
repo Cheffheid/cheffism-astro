@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
 
 const { title, header = true } = Astro.props;
 ---
@@ -18,10 +19,11 @@ const { title, header = true } = Astro.props;
 	</head>
 	<body>
 		{header && (
-			<Header></Header>
+			<Header />
 		)}
 		<main id="container" class="page-container">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
