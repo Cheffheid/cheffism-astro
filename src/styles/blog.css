@@ -4,7 +4,7 @@
 }
 
 .blog-post:not(:last-child) {
-  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
 }
 
 .blog-post-link {
@@ -41,4 +41,10 @@
 .blog-post-title {
   font-weight: 400;
   line-height: 1.25;
+}
+
+.blog-post-excerpt {
+  p {
+    margin-bottom: 0;
+  }
 }
