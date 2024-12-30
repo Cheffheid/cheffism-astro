@@ -3,22 +3,22 @@ import Layout from '../../layouts/Layout.astro';
 
 const { slug } = Astro.params;
 
-let res = await fetch(`https://jeffreydewit.com/wp-json/wp/v2/posts?slug=${slug}`);
+let res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?slug=${slug}`);
 let [post] = await res.json();
 
 export async function getStaticPaths() {
-  let data = await fetch("https://jeffreydewit.com/wp-json/wp/v2/posts");
-  let posts = await data.json();
+	let data = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts`);
+	let posts = await data.json();
 
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post: post },
-  }));
+	return posts.map((post: { slug: string; }) => ({
+		params: { slug: post.slug },
+		props: { post: post },
+	}));
 }
 ---
 <Layout title={post.title.rendered}>
-  <article>
-    <h1 set:html={post.title.rendered} />
-    <Fragment set:html={post.content.rendered} />
-  </article>
+	<article>
+		<h1 set:html={post.title.rendered} />
+		<Fragment set:html={post.content.rendered} />
+	</article>
 </Layout>
