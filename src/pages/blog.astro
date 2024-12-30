@@ -13,7 +13,7 @@ const posts = await res.json();
 	<main id="container" class="page-container">
 		<Header></Header>
 		<section class="page-content">
-			<h1>Things I've Written</h1>
+			<h1 class="page-title">Things I've Written</h1>
 			{
 				posts.map((post: { slug: string; title: { rendered: string; }; date: string | number | Date; excerpt: { rendered: string } }) => (
 					<article class="blog-post">

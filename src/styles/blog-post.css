@@ -1,12 +1,33 @@
+.page-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .page-content {
-  align-items: center;
   flex-direction: column;
   max-width: 48rem;
-  text-align: center;
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+}
+
+.wp-block-heading {
+  margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .wp-block-image {
-  width: 54rem;
+  margin: 0 0 1rem 0;
+  width: 100%;
+
+  @media screen and (min-width: 54rem) {
+    margin-left: -3rem;
+    width: 54rem;
+  }
 
   img {
     height: auto;

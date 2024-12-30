@@ -37,6 +37,10 @@ body {
   height: 100%;
 }
 
+body {
+  font-size: 1.125rem;
+}
+
 h1,
 h2,
 h3,
@@ -63,4 +67,8 @@ a {
   display: flex;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.page-title {
+  font-size: 2rem;
 }
