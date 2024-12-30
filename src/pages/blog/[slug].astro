@@ -24,6 +24,9 @@ export async function getStaticPaths() {
 	<Header></Header>
 	<article class="page-content">
 		<h1 class="page-title" set:html={post.title.rendered} />
+		<time class="post-date" datetime={post.date}>
+			{new Date(post.date).toLocaleDateString()}
+		</time>
 		<Fragment set:html={post.content.rendered} />
 	</article>
 </Layout>
