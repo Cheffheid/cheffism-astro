@@ -1,0 +1,15 @@
+.page-content {
+  align-items: center;
+  flex-direction: column;
+  max-width: 48rem;
+  text-align: center;
+}
+
+.wp-block-image {
+  width: 54rem;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}

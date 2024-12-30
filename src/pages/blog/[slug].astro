@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import Header from '@components/Header.astro';
 
 import '@styles/global.css';
+import '@styles/blog-post.css';
 
 const { slug } = Astro.params;
 
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 ---
 <Layout title={post.title.rendered}>
 	<Header></Header>
-	<article>
+	<article class="page-content">
 		<h1 set:html={post.title.rendered} />
 		<Fragment set:html={post.content.rendered} />
 	</article>
