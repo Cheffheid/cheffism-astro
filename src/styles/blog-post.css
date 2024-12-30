@@ -7,7 +7,6 @@
 }
 
 .page-content {
-  flex-direction: column;
   max-width: 60.5rem;
 
   p {
