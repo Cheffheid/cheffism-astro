@@ -8,7 +8,7 @@
 
 .page-content {
   flex-direction: column;
-  max-width: 48rem;
+  max-width: 60.5rem;
 
   p {
     font-size: 1.2rem;
@@ -27,9 +27,9 @@
   margin: 2rem 0;
   width: 100%;
 
-  @media screen and (min-width: 54rem) {
-    margin-left: -3rem;
-    width: 54rem;
+  @media screen and (min-width: 66rem) {
+    margin-left: -3.25rem;
+    width: 66rem;
   }
 
   img {
