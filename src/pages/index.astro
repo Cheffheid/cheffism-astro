@@ -7,17 +7,15 @@ import '@styles/global.css';
 import '@styles/home.css';
 ---
 
-<Layout title="Jeffrey de Wit">
-	<main id="container" class="page-container">
-		<section class="page-content">
-			<h1 class="home-title">
-				Jeffrey de Wit
-			</h1>
-			<p class="home-subtitle">
-				Just a guy and some code.
-			</p>
-			<SocialNav />
-			<MainNav />
-		</section>
-	</main>
+<Layout title="Jeffrey de Wit" header={false}>
+	<section class="page-content">
+		<h1 class="home-title">
+			Jeffrey de Wit
+		</h1>
+		<p class="home-subtitle">
+			Just a guy and some code.
+		</p>
+		<SocialNav />
+		<MainNav />
+	</section>
 </Layout>
