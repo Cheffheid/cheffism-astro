@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
 
-import '../styles/global.css';
-import '../styles/blog.css';
+import '@styles/global.css';
+import '@styles/blog.css';
 
 const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?_fields=id,title,slug,date`);
 const posts = await res.json();
