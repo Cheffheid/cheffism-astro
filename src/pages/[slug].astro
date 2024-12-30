@@ -1,0 +1,27 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+import '@styles/global.css';
+import '@styles/page.css';
+
+const { slug } = Astro.params;
+
+let res = await fetch(`${import.meta.env.PUBLIC_API_URL}/pages?slug=${slug}`);
+let [page] = await res.json();
+
+export async function getStaticPaths() {
+	let data = await fetch(`${import.meta.env.PUBLIC_API_URL}/pages`);
+	let pages = await data.json();
+
+	return pages.map((page: { slug: string; }) => ({
+		params: { slug: page.slug },
+		props: { page: page },
+	}));
+}
+---
+<Layout title={page.title.rendered}>
+	<article class="page-content">
+		<h1 class="page-title" set:html={page.title.rendered} />
+		<Fragment set:html={page.content.rendered} />
+	</article>
+</Layout>
