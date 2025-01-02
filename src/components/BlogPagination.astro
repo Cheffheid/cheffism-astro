@@ -1,0 +1,33 @@
+---
+const { page } = Astro.params;
+
+let nextPage = 2;
+let prevPage = 0;
+
+if ( page ) {
+	nextPage = parseInt(page) + 1;
+	prevPage = parseInt(page) - 1;
+}
+---
+
+<section class="blog-pagination">
+	{prevPage >= 1 && (
+		<a href={`/blog/page/${prevPage}`} class="blog-pagination-previous">
+			Previous Page
+		</a>
+	)}
+	<a href={`/blog/page/${nextPage}`} class="blog-pagination-next">
+		Next Page
+	</a>
+</section>
+
+<style>
+.blog-pagination {
+	display: flex;
+	justify-content: space-between;
+}
+
+.blog-pagination-next:first-child:last-child {
+	margin-left: auto;
+}
+</style>

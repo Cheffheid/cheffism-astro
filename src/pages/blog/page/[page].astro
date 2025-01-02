@@ -5,9 +5,23 @@ import { getNumPages } from '@utils/wordpress';
 
 import '@styles/blog.css';
 
-const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?_fields=id,title,slug,date,excerpt`);
+const { page } = Astro.params;
 
-const [posts, pageCount] = await Promise.all([res.json(), getNumPages('posts')]);
+const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?_fields=id,title,slug,date,excerpt&page=${page}`);
+const posts = await res.json();
+
+export async function getStaticPaths() {
+	let pageCount = await getNumPages( 'post' );
+	let routes = [];
+
+	for ( var i = 2; i <= pageCount; i++ ) {
+		routes.push({
+			params: { page: i }
+		});
+	}
+
+	return routes;
+}
 ---
 
 <Layout title="Blog">
@@ -24,8 +38,6 @@ const [posts, pageCount] = await Promise.all([res.json(), getNumPages('posts')])
 				</article>
 			))
 		}
-		{pageCount > 1 && (
-			<BlogPagination />
-		)}
+		<BlogPagination />
 	</section>
 </Layout>
