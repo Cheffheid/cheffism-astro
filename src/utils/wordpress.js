@@ -38,5 +38,5 @@ export async function getNumPages(postType = "posts", perPage = 10) {
     }/${postType}?status='publish'&per_page=${perPage}`
   );
 
-  return headers.get("x-wp-totalpages");
+  return parseInt(headers.get("x-wp-totalpages"));
 }
