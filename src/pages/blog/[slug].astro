@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { getAllSlugsForPostType } from '@utils/wordpress';
 
-import '@styles/global.css';
 import '@styles/blog-post.css';
 
 const { slug } = Astro.params;
@@ -10,12 +10,10 @@ let res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?slug=${slug}`);
 let [post] = await res.json();
 
 export async function getStaticPaths() {
-	let data = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts`);
-	let posts = await data.json();
+	let postSlugs = await getAllSlugsForPostType( 'post' );
 
-	return posts.map((post: { slug: string; }) => ({
-		params: { slug: post.slug },
-		props: { post: post },
+	return postSlugs.map((slug: string) => ({
+		params: { slug }
 	}));
 }
 ---
