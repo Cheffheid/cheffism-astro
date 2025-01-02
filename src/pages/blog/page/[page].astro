@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 	<section class="page-content">
 		<h1 class="page-title">Things I've Written</h1>
 		{
-			posts.map((post: { slug: string; title: { rendered: string; }; date: string | Date; excerpt: { rendered: string } }) => (
+			posts.map((post: { slug: string; title: { rendered: string; }; date: string; excerpt: { rendered: string } }) => (
 				<article class="blog-post">
 					<a href={`/blog/${post.slug}/`} class="blog-post-link">
 						<h2 class="blog-post-title" set:html={post.title.rendered} />
