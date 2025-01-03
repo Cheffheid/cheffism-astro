@@ -5,7 +5,7 @@ import Footer from '@components/Footer.astro';
 
 import '@styles/global.css';
 
-const { title, header = true } = Astro.props;
+const { title, header = true, footer = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,6 +26,8 @@ const { title, header = true } = Astro.props;
 		<main id="content" class="page-container">
 			<slot />
 		</main>
-		<Footer />
+		{footer && (
+			<Footer />
+		)}
 	</body>
 </html>
