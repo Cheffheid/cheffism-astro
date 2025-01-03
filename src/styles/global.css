@@ -1,6 +1,7 @@
 @import "./partials/fonts.css";
 @import "./partials/accessibility.css";
 @import "./partials/baseline.css";
+@import "./partials/variables.css";
 
 .page-content {
   display: flex;

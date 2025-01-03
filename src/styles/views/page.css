@@ -2,4 +2,11 @@
 
 .page-content {
   max-width: 60.5rem;
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
 }

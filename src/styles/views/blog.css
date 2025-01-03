@@ -13,7 +13,7 @@
   text-decoration: none;
 
   &::after {
-    background-color: rgba(6, 95, 70, 0.05);
+    background-color: rgba(var(--theme-highlight-color-rgb), 0.05);
     content: "";
     border-radius: 0.5rem;
     display: block;

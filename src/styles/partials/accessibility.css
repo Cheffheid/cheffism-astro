@@ -17,7 +17,7 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   text-decoration: none;
-  font-family: "Tenor Sans", sans-serif;
+  font-family: var(--theme-font-sans);
 
   &:focus {
     background-color: #eee;

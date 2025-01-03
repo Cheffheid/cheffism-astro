@@ -1,0 +1,8 @@
+:root {
+  --theme-bg-color: #f9f9f9;
+  --theme-text-color: #171717;
+  --theme-highlight-color: #065f5f;
+  --theme-highlight-color-rgb: 6, 95, 95;
+  --theme-font-sans: "Tenor Sans", sans-serif;
+  --theme-font-serif: "EB_Garamond", serif;
+}
