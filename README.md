@@ -15,6 +15,8 @@ And so it's important to note that I still have a lot of work to do on this befo
 [ ] Retrieve menu content from WordPress
 [ ] Build a better "projects" template
 [ ] Test every core WordPress block styles, update accordingly
+[ ] Fix main navigation on mobile
+[ ] Dark mode toggle
 
 ## Setup
 
