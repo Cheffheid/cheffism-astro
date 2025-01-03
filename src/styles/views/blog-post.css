@@ -1,3 +1,5 @@
+@import "../wp-blocks/index.css";
+
 .page-title {
   margin-bottom: 0;
 }
@@ -14,25 +16,5 @@
     line-height: 1.4;
     margin-bottom: 1rem;
     margin-top: 0;
-  }
-}
-
-.wp-block-heading {
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-}
-
-.wp-block-image {
-  margin: 2rem 0;
-  width: 100%;
-
-  @media screen and (min-width: 66rem) {
-    margin-left: -3.25rem;
-    width: 66rem;
-  }
-
-  img {
-    height: auto;
-    width: 100%;
   }
 }

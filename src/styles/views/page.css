@@ -1,3 +1,5 @@
+@import "../wp-blocks/index.css";
+
 .page-content {
   max-width: 60.5rem;
 }

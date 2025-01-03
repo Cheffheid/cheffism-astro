@@ -1,0 +1,14 @@
+.wp-block-image {
+  margin: 2rem 0;
+  width: 100%;
+
+  @media screen and (min-width: 66rem) {
+    margin-left: -3.25rem;
+    width: 66rem;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
