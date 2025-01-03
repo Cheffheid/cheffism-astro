@@ -37,3 +37,8 @@ a {
     color: rgb(6 95 70);
   }
 }
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
