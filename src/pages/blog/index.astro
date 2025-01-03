@@ -25,7 +25,7 @@ const [posts, pageCount] = await Promise.all([res.json(), getNumPages('posts')])
 			))
 		}
 		{pageCount > 1 && (
-			<BlogPagination />
+			<BlogPagination pagecount={pageCount} />
 		)}
 	</section>
 </Layout>

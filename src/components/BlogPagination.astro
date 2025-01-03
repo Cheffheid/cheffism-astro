@@ -1,24 +1,24 @@
 ---
 const { page } = Astro.params;
+const { pagecount } = Astro.props;
 
-let nextPage = 2;
-let prevPage = 0;
+const nextPage = page ? parseInt(page) + 1 : 2;
+const prevPage = page ? parseInt(page) - 1 : 0;
 
-if ( page ) {
-	nextPage = parseInt(page) + 1;
-	prevPage = parseInt(page) - 1;
-}
+const prevLink = prevPage > 1 ? `/blog/page/${prevPage}` : '/blog/';
 ---
 
 <section class="blog-pagination">
 	{prevPage >= 1 && (
-		<a href={`/blog/page/${prevPage}`} class="blog-pagination-previous">
+		<a href={`${prevLink}`} class="blog-pagination-previous">
 			<span class="arrow" aria-hidden="true">&larr;</span> Previous Page
 		</a>
 	)}
-	<a href={`/blog/page/${nextPage}`} class="blog-pagination-next">
-		Next Page <span class="arrow" aria-hidden="true">&rarr;</span>
-	</a>
+	{pagecount >= nextPage && (
+		<a href={`/blog/page/${nextPage}`} class="blog-pagination-next">
+			Next Page <span class="arrow" aria-hidden="true">&rarr;</span>
+		</a>
+	)}
 </section>
 
 <style>
