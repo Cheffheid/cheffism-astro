@@ -1,40 +1,70 @@
 # Astro Frontend
 
-In progress frontend build for my WordPress site to try out Astro 5. Default Astro Readme follows below.
+In progress frontend build for my WordPress site to try out Astro 5. As it is currently, it's a hybrid of "hard coded" content (homepage, menus) and content retrieved from WordPress (post/page content).
 
-## Astro Starter Kit: Basics
+And so it's important to note that I still have a lot of work to do on this before it's actually complete:
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Todo List
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+[x] Update Layout.astro
+[x] Create Header and Footer
+[x] Create blog index template, retrieve posts from WordPress
+[x] Create blog single template, retrieve post content from WordPress
+[x] Create page single template, retrieve page content from WordPress
+[x] Create blog pagination component
+[ ] Retrieve menu content from WordPress
+[ ] Build a better "projects" template
+[ ] Test every core WordPress block styles, update accordingly
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Setup
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+In order to run this locally, you will need to create a .env file.
+You can do so manually and add `PUBLIC_API_URL` to it, or copy the included .env.sample file and update the value for `PUBLIC_API_URL`.
 
-### 🚀 Project Structure
+Once that is done, you can run `npm i && npm run dev` to install and run Astro in dev mode, which will start a local dev server you can access at `https://localhost:4321`.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Project Structure
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Inside of the Astro project, you'll see the following folders and files:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### /public
 
-### 🧞 Commands
+This is where public files that shouldn't be processed live. Specifically, you will find font files and some svg icons here.
+
+### /src
+
+This is where the bulk of the application lives. Here you will find:
+
+#### /assets
+
+This folder is where images that need to be compressed by the build would normally go. Currently empty.
+
+#### /components
+
+This folder contains reusable components as astro files. Currently, contains components for the header, footer, main and social menus, and the blog pagination.
+
+Some of these components will have CSS in them too, to allow for Astro to scope that CSS properly.
+
+#### /layouts
+
+All you will find here is the main Astro Layout file. This is the layout used by pretty much every page on the site.
+
+#### /pages
+
+The Astro pages folder facilitates the routing and different page templates. Some of these templates will be named something like [slug].astro and these are dynamic pages.
+
+For example, `/pages/[slug].astro` will try and obtain content from WordPress for a Page that lives at [slug] and `/blog/[slug].astro` will try and obtain content from WordPress for a blog post at [slug]. As it is currently, the main navigation links are hard coded for pages that do exist in WordPress on my website, but blog posts should be dynamic enough to work for any site.
+
+#### /styles
+
+A folder for CSS files, structured for it to make sense. This is where the global styles live, as well as some of the page and block specific styles.
+
+#### /utils
+
+A folder unrelated to Astro, and currently only contains a single JavaScript file for some WordPress API utility.
+For example, in order for dynamic routes to work in a static Astro context all the available options need to be populated inside of a `getStaticPaths()` function. The file inside of this folder helps facilitate that process by retrieving all of the available slugs for a given post types from the REST API.
+
+## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -46,7 +76,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-### 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
