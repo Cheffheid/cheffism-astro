@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { getAllSlugsForPostType } from '@utils/wordpress';
+import DOMPurify from "isomorphic-dompurify";
 
 import '@styles/views/page.css';
 
@@ -20,6 +21,8 @@ export async function getStaticPaths() {
 <Layout title={page.title.rendered}>
 	<article class="page-content">
 		<h1 class="page-title" set:html={page.title.rendered} />
-		<Fragment set:html={page.content.rendered} />
+		<Fragment set:html={DOMPurify.sanitize(page.content.rendered, {
+			FORBID_ATTR: ["style"],
+		})} />
 	</article>
 </Layout>

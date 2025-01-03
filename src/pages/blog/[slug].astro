@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { getAllSlugsForPostType } from '@utils/wordpress';
+import DOMPurify from "isomorphic-dompurify";
 
 import '@styles/views/blog-post.css';
 
@@ -23,6 +24,8 @@ export async function getStaticPaths() {
 		<time class="post-date" datetime={post.date}>
 			{new Date(post.date).toLocaleDateString()}
 		</time>
-		<Fragment set:html={post.content.rendered} />
+		<Fragment set:html={DOMPurify.sanitize(post.content.rendered, {
+			FORBID_ATTR: ["style"],
+		})} />
 	</article>
 </Layout>
