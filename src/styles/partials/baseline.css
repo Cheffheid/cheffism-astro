@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #f9f9f9;
+  color: #171717;
+  font-family: "EB_Garamond", serif;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 1.125rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Tenor Sans", sans-serif;
+}
+
+a {
+  color: #171717;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    color: rgb(6 95 70);
+  }
+}
