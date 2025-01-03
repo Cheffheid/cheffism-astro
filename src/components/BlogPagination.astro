@@ -13,11 +13,11 @@ if ( page ) {
 <section class="blog-pagination">
 	{prevPage >= 1 && (
 		<a href={`/blog/page/${prevPage}`} class="blog-pagination-previous">
-			Previous Page
+			<span class="arrow" aria-hidden="true">&larr;</span> Previous Page
 		</a>
 	)}
 	<a href={`/blog/page/${nextPage}`} class="blog-pagination-next">
-		Next Page
+		Next Page <span class="arrow" aria-hidden="true">&rarr;</span>
 	</a>
 </section>
 
@@ -29,5 +29,56 @@ if ( page ) {
 
 .blog-pagination-next:first-child:last-child {
 	margin-left: auto;
+}
+
+.blog-pagination-previous,
+.blog-pagination-next {
+	position: relative;
+	text-decoration: none;
+
+	.arrow {
+		position: absolute;
+		opacity: 0;
+		transition-duration: 150ms;
+		transition-timing-function: ease-out;
+	}
+
+	&:hover,
+	&:focus {
+
+		.arrow {
+			opacity: 1;
+		}
+	}
+}
+
+.blog-pagination-previous {
+	.arrow {
+		left: 0;
+		transition-property: left, opacity;
+	}
+
+	&:hover,
+	&:focus {
+
+		.arrow {
+			left: -1.5rem;
+		}
+	}
+}
+
+.blog-pagination-next {
+	.arrow {
+		right: 0;
+		transition-property: right, opacity;
+	}
+
+	&:hover,
+	&:focus {
+
+		.arrow {
+			right: -1.5rem;
+		}
+	}
 }
 </style>
