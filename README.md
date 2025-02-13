@@ -6,17 +6,17 @@ And so it's important to note that I still have a lot of work to do on this befo
 
 ## Todo List
 
-[x] Update Layout.astro
-[x] Create Header and Footer
-[x] Create blog index template, retrieve posts from WordPress
-[x] Create blog single template, retrieve post content from WordPress
-[x] Create page single template, retrieve page content from WordPress
-[x] Create blog pagination component
-[ ] Retrieve menu content from WordPress
-[ ] Build a better "projects" template
-[ ] Test every core WordPress block styles, update accordingly
-[ ] Fix main navigation on mobile
-[ ] Dark mode toggle
+- [x] Update Layout.astro
+- [x] Create Header and Footer
+- [x] Create blog index template, retrieve posts from WordPress
+- [x] Create blog single template, retrieve post content from WordPress
+- [x] Create page single template, retrieve page content from WordPress
+- [x] Create blog pagination component
+- [ ] Retrieve menu content from WordPress
+- [ ] Build a better "projects" template
+- [ ] Test every core WordPress block styles, update accordingly
+- [ ] Fix main navigation on mobile
+- [ ] Dark mode toggle
 
 ## Setup
 
