@@ -1,9 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import BlogPagination from '@components/blog/Pagination.astro';
 import { getNumPages } from '@utils/wordpress';
 
 import '@styles/views/blog.css';
+import River from '@components/content/River.astro';
 
 const { page } = Astro.params;
 
@@ -28,17 +28,6 @@ export async function getStaticPaths() {
 <Layout title="Blog">
 	<section class="page-content">
 		<h1 class="page-title">Things I've Written</h1>
-		{
-			posts.map((post: { slug: string; title: { rendered: string; }; date: string; excerpt: { rendered: string } }) => (
-				<article class="blog-post">
-					<a href={`/blog/${post.slug}/`} class="blog-post-link">
-						<h2 class="blog-post-title" set:html={post.title.rendered} />
-						<p class="blog-post-date" set:html={new Date(post.date).toLocaleDateString()} />
-						<div class="blog-post-excerpt" set:html={post.excerpt.rendered} />
-					</a>
-				</article>
-			))
-		}
-		<BlogPagination pagecount={pageCount} />
+		<River pageCount={pageCount} posts={posts} />
 	</section>
 </Layout>

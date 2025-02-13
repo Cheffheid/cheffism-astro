@@ -1,0 +1,21 @@
+---
+import BlogPagination from '@components/content/Pagination.astro';
+
+const { posts, pageCount = 1 } = Astro.props;
+---
+<div>
+	{
+		posts.map((post: { slug: string; title: { rendered: string; }; date: string; excerpt: { rendered: string } }) => (
+			<article class="blog-post">
+				<a href={`/blog/${post.slug}/`} class="blog-post-link">
+					<h2 class="blog-post-title" set:html={post.title.rendered} />
+					<p class="blog-post-date" set:html={new Date(post.date).toLocaleDateString()} />
+					<div class="blog-post-excerpt" set:html={post.excerpt.rendered} />
+				</a>
+			</article>
+		))
+	}
+	{pageCount > 1 && (
+		<BlogPagination pagecount={pageCount} />
+	)}
+</div>
