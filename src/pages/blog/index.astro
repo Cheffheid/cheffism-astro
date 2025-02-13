@@ -1,18 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import River from '@components/content/River.astro';
-import { getNumPages } from '@utils/wordpress';
 
 import '@styles/views/blog.css';
-
-const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?_fields=id,title,slug,date,excerpt`);
-
-const [posts, pageCount] = await Promise.all([res.json(), getNumPages('posts')]);
 ---
 
 <Layout title="Blog">
 	<section class="page-content">
 		<h1 class="page-title">Things I've Written</h1>
-		<River pageCount={pageCount} posts={posts} />
+		<River />
 	</section>
 </Layout>

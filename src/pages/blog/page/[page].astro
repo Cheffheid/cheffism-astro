@@ -7,10 +7,6 @@ import River from '@components/content/River.astro';
 
 const { page } = Astro.params;
 
-const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/posts?_fields=id,title,slug,date,excerpt&page=${page}`);
-
-const [posts, pageCount] = await Promise.all([res.json(), getNumPages('posts')]);
-
 export async function getStaticPaths() {
 	let pageCount = await getNumPages( 'post' );
 	let routes = [];
@@ -28,6 +24,6 @@ export async function getStaticPaths() {
 <Layout title="Blog">
 	<section class="page-content">
 		<h1 class="page-title">Things I've Written</h1>
-		<River pageCount={pageCount} posts={posts} />
+		<River page={page} />
 	</section>
 </Layout>
