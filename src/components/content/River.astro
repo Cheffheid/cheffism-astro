@@ -4,13 +4,7 @@ import { getNumPages } from '@utils/wordpress';
 
 const { postType = 'posts', page = 1 } = Astro.props;
 
-let requestUrl = `${import.meta.env.PUBLIC_API_URL}/${postType}?_fields=id,title,slug,date,excerpt`;
-
-if ( page > 1 ) {
-	requestUrl += `&page=${page}`;
-}
-
-const res = await fetch(requestUrl);
+const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/${postType}?_fields=id,title,slug,date,excerpt&page=${page}`);
 
 const [posts, pageCount] = await Promise.all([res.json(), getNumPages(postType)]);
 ---
